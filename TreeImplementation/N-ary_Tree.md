@@ -84,6 +84,34 @@ public class NaryTree {
         }
     }
 }
+public class Main {
+    public static void main(String[] args) {
+        NaryTree tree = new NaryTree(1);
+        NaryNode root = tree.root;
+
+        NaryNode child1 = new NaryNode(2);
+        NaryNode child2 = new NaryNode(3);
+        NaryNode child3 = new NaryNode(4);
+
+        root.addChild(child1);
+        root.addChild(child2);
+        root.addChild(child3);
+
+        child1.addChild(new NaryNode(5));
+        child1.addChild(new NaryNode(6));
+        child3.addChild(new NaryNode(7));
+
+        System.out.println("Preorder:");
+        tree.printPreorder(root); // Output: 1 2 5 6 3 4 7
+
+        System.out.println("\n\nPostorder:");
+        tree.printPostorder(root); // Output: 5 6 2 3 7 4 1
+
+        System.out.println("\n\nTree Structure:");
+        tree.printTree(root, "");
+    }
+}
+
 ```
 ## Interview Tips
 - N-ary trees are useful when data naturally has variable number of children (e.g. DOM Trees, File Systems).
